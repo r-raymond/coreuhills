@@ -1,0 +1,78 @@
+name:                coreuhills
+version:             0.1.0.0
+github:              "r-raymond/coreuhills"
+license:             GPL-3
+author:              "Robin Raymond"
+maintainer:          "robin@robinraymond.de"
+copyright:           "2018 Robin Raymond"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/r-raymond/coreuhills#readme>
+
+ghc-options: -Wall
+
+default-extensions:
+- NoImplicitPrelude
+- OverloadedStrings
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- protolude
+
+library:
+  source-dirs: src
+
+executables:
+  ls:
+    main:                Main.hs
+    source-dirs:         ls
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - coreuhills
+
+executables:
+  true:
+    main:                Main.hs
+    source-dirs:         "true"
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - coreuhills
+
+executables:
+  false:
+    main:                Main.hs
+    source-dirs:         "false"
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - coreuhills
+
+tests:
+  coreuhills-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - coreuhills
