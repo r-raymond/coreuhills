@@ -5,18 +5,18 @@ module Types
     )
     where
 
-import Protolude hiding (group)
+import           Protolude  hiding (group)
 
-import Data.Aeson
+import           Data.Aeson
 
 data Path
     = Path
-    { path :: FilePath
-    , owner :: Maybe Text
-    , group :: Maybe Text
+    { path        :: FilePath
+    , owner       :: Maybe Text
+    , group       :: Maybe Text
     , permissions :: Maybe Text
-    , size :: Maybe Integer
-    , lastChange :: Maybe Text
+    , size        :: Maybe Integer
+    , lastChange  :: Maybe Text
     }
 
 instance ToJSON Path where
