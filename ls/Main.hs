@@ -2,5 +2,10 @@ module Main where
 
 import Protolude
 
+import Data.Text.IO (getContents)
+
 main :: IO ()
-main = return ()
+main = do
+    input <- getContents
+    return getContents
+

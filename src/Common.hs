@@ -1,5 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-
 module Common
     ( Failure(..)
     , Success(..)
@@ -52,3 +50,4 @@ instance (FromJSON a) => (FromJSON (Success a)) where
                 content <- obj .: "payload"
                 return (Success content)
             else fail "Not a success"
+
