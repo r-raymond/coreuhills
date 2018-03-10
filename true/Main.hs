@@ -1,10 +1,10 @@
 module Main where
 
-import Protolude
+import           Protolude
 
-import Data.Aeson (encode)
+import           Data.Aeson (encode)
 
-import Common
+import           Common (Success(..))
 
 main :: IO ()
-main = putStrLn $ encode (Success ())
+main = putStrLn $ encode $ Success ()
