@@ -28,7 +28,9 @@ default-extensions:
 dependencies:
 - base >= 4.7 && < 5
 - aeson
+- directory
 - protolude
+- text
 - unordered-containers
 
 library:
@@ -45,7 +47,6 @@ executables:
     dependencies:
     - coreuhills
 
-executables:
   true:
     main:                Main.hs
     source-dirs:         "true"
@@ -56,7 +57,6 @@ executables:
     dependencies:
     - coreuhills
 
-executables:
   false:
     main:                Main.hs
     source-dirs:         "false"
