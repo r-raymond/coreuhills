@@ -5,12 +5,13 @@ module Common
     , Success(..)
     ) where
 
-import Protolude
+import           Protolude
 
-import Data.Aeson hiding (Success)
-import Data.Aeson.Types hiding (Success)
+import           Data.Aeson       (FromJSON, ToJSON, object, parseJSON, toJSON,
+                                   withObject, (.:), (.=))
+import           Data.Aeson.Types (Parser)
 
-import Control.Monad (fail)
+import           Control.Monad    (fail)
 
 data Failure
     = Failure
@@ -38,7 +39,7 @@ instance FromJSON Failure where
             else fail "Not a failure"
 
 instance (ToJSON a) => (ToJSON (Success a)) where
-    toJSON (Success x) = 
+    toJSON (Success x) =
         object [ "result" .= ("success" :: Text)
                , "payload" .= (toJSON x)
                ]
